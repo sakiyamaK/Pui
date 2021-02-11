@@ -8,7 +8,9 @@
 import Foundation
 
 struct MVCViewTemplate: Template {
-  var supportFileName: String { Const.prefix + "View.xib"}
+  var dirPath: String { Const.mvcPath + "/View/" }
+  var supportFileName: String { Const.prefix + "View.xib" }
+  var codeFileName: String { Const.prefix + "View.swift" }
 
   var supportFile: String {
 """
@@ -23,7 +25,7 @@ struct MVCViewTemplate: Template {
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3vI-fx-tF5" customClass="\(Const.prefix)View" customModule="\(Const.prefix)Module" customModuleProvider="target">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3vI-fx-tF5" customClass="\(Const.prefix)View" customModule="\(Const.targetName)Module" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="455"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -35,8 +37,6 @@ struct MVCViewTemplate: Template {
 
 """
   }
-
-  var codeFileName: String { Const.prefix + "View.swift" }
 
   var code: String {
 """

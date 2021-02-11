@@ -7,15 +7,12 @@
 
 import Foundation
 
-protocol Template {
-  var supportFileName: String { get }
-  var supportFile: String { get }
-  var codeFileName: String { get }
-  var code: String { get }
-}
-struct MVCControllerTemplate: Template {
+struct MVCViewControllerTemplate: Template {
 
-  var supportFileName: String { Const.prefix+"ViewController.storyboard" }
+  var dirPath: String { Const.mvcPath + "/ViewController/" }
+  var supportFileName: String { Const.prefix + "ViewController.storyboard" }
+  var codeFileName: String { Const.prefix + "ViewController.swift" }
+
   var supportFile: String {
     """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,7 +29,7 @@ struct MVCControllerTemplate: Template {
         <!--View Controller-->
         <scene sceneID="ctg-4H-50b">
             <objects>
-                <viewController id="wOa-SI-twv" customClass="\(Const.prefix)ViewController" sceneMemberID="viewController">
+                <viewController id="wOa-SI-twv" customClass="\(Const.prefix)ViewController" customModule="\(Const.targetName)Module"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UiU-xH-lu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +51,6 @@ struct MVCControllerTemplate: Template {
 """
   }
 
-  var codeFileName: String { Const.prefix+"ViewController.swift" }
   var code: String {
 """
 import UIKit

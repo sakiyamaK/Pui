@@ -9,5 +9,6 @@ import Foundation
 
 enum Const {
   static let prefix: String = "__PREFIX__"
+  static let targetName: String = "__TARGET__"
   static let mvcPath: String = "./template/mvc/"
 }

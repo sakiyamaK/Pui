@@ -26,10 +26,13 @@ struct Pui: ParsableCommand {
   var command: CommandType
 
   @Flag(help: "Set Architecture type if command equal to setup")
-  var architecture: ArchitectureType?
+  var architecture: ArchitectureType = .mvc
+
+  @Argument(help: "Set ComponentName if command equal to generate")
+  var componentName: String = ""
 
   func run() throws {
-    let core = PuiCore(command: command, architecture: architecture ?? ArchitectureType.mvc)
+    let core = PuiCore(command: command, architecture: architecture, componentName: componentName)
     try core.run()
   }
 }
