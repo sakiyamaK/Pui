@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Pui::Pui"
-               BuildableName = "Pui"
-               BlueprintName = "Pui"
+               BlueprintIdentifier = "Pui::PuiCore"
+               BuildableName = "PuiCore.framework"
+               BlueprintName = "PuiCore"
                ReferencedContainer = "container:Pui.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Pui::PuiCore"
-               BuildableName = "PuiCore.framework"
-               BlueprintName = "PuiCore"
+               BlueprintIdentifier = "Pui::Pui"
+               BuildableName = "Pui"
+               BlueprintName = "Pui"
                ReferencedContainer = "container:Pui.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
