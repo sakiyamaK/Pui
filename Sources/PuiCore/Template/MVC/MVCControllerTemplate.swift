@@ -7,8 +7,16 @@
 
 import Foundation
 
-struct MVCControllerTemplate {
-  var storyboard: String {
+protocol Template {
+  var supportFileName: String { get }
+  var supportFile: String { get }
+  var codeFileName: String { get }
+  var code: String { get }
+}
+struct MVCControllerTemplate: Template {
+
+  var supportFileName: String { Const.prefix+"ViewController.storyboard" }
+  var supportFile: String {
     """
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wOa-SI-twv">
@@ -24,7 +32,7 @@ struct MVCControllerTemplate {
         <!--View Controller-->
         <scene sceneID="ctg-4H-50b">
             <objects>
-                <viewController id="wOa-SI-twv" customClass="__PREFIX__ViewController" sceneMemberID="viewController">
+                <viewController id="wOa-SI-twv" customClass="\(Const.prefix)ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UiU-xH-lu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,9 +54,12 @@ struct MVCControllerTemplate {
 """
   }
 
+  var codeFileName: String { Const.prefix+"ViewController.swift" }
   var code: String {
-    """
-final class __PREFIX__ViewController: UIViewController {
+"""
+import UIKit
+
+final class \(Const.prefix)ViewController: UIViewController {
 }
 """
   }

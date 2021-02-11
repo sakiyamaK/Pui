@@ -16,12 +16,19 @@ public struct PuiCore {
       switch architecture {
         case .mvc:
           print("mvc")
+
           let controller = MVCControllerTemplate()
+
           let file = FileOperator(fileManager: FileManager.default)
-          file.createFile(for: "mvc-test.swift")
-          try file.write(to: "mvc-test.swift", content: controller.code)
-          file.createFile(for: "mvc-test.storyboard")
-          try file.write(to: "mvc-test.storyboard", content: controller.storyboard)
+
+          try file.createDirectory(for: Const.mvcPath)
+
+          let mvcCodeFullPath = Const.mvcPath + controller.codeFileName
+          file.createFile(for: mvcCodeFullPath)
+          try file.write(to: mvcCodeFullPath, content: controller.code)
+          let mvcSupoortFullPath = Const.mvcPath + controller.supportFileName
+          file.createFile(for: mvcSupoortFullPath)
+          try file.write(to: mvcSupoortFullPath, content: controller.supportFile)
         case .mvp:
         print("mvp")
         case .mvvm:

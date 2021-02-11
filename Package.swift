@@ -32,7 +32,10 @@ let package = Package(
               "PuiCore"]
         ),
         .target(name: "PuiCore",
-                dependencies: []),
+                dependencies: [
+                  .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                  "Yaml",
+                ]),
         .testTarget(
             name: "PuiTests",
             dependencies: ["PuiCore"]),
