@@ -13,3 +13,7 @@ build:
 	swift build
 
 .PHONY: build
+
+release:
+	swift build -c release -Xswiftc -target -Xswiftc x86_64-apple-macosx11.2
+.PHONY: release
