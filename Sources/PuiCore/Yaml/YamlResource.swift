@@ -19,30 +19,25 @@ enum ComponentYamlProperty: String {
 public struct YamlResource {
 
   private static let ymlFileName = "Pui.yml"
-    fileprivate static func findYamlFile() -> URL? {
-      #if DEBUG
-      let url = URL(fileURLWithPath: "/Users/sakiyamak/Documents/github/ios/001_Library/Pui/Pui.yml")
-      return url
-      #else
-      let path = run("ls | grep \(ymlFileName)").stdout
-      return URL(fileURLWithPath: path)
-      #endif
+  fileprivate static func findYamlFile() -> URL? {
+    let path = run(bash: "ls | grep \(ymlFileName)").stdout
+    return URL(fileURLWithPath: path)
+  }
+  
+  fileprivate static func readYamlContent(for fileUrl: URL) throws -> String {
+    try String(contentsOf: fileUrl)
+  }
+  
+  public static func loadYamlIfPossible() throws -> Yaml {
+    guard let yamlFile = findYamlFile() else {
+      throw PuiError.notFoundYml("Can't find \(ymlFileName), please prepare this file.")
     }
-    
-    fileprivate static func readYamlContent(for fileUrl: URL) throws -> String {
-      try String(contentsOf: fileUrl)
+    do {
+      let yamlContent = try readYamlContent(for: yamlFile)
+      let yaml = try Yaml.load(yamlContent)
+      return yaml
+    } catch {
+      throw PuiError.notParseYml("Can't load yaml file.")
     }
-    
-    public static func loadYamlIfPossible() throws -> Yaml {
-      guard let yamlFile = findYamlFile() else {
-        throw PuiError.notFoundYml("Can't find \(ymlFileName), please prepare this file.")
-      }
-      do {
-        let yamlContent = try readYamlContent(for: yamlFile)
-        let yaml = try Yaml.load(yamlContent)
-        return yaml
-      } catch {
-        throw PuiError.notParseYml("Can't load yaml file.")
-      }
-    }
+  }
 }

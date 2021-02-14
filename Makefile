@@ -7,9 +7,9 @@ setup:
 	open ./Pui.xcodeproj
 .PHONY: setup
 
-build:
-	swift build
-.PHONY: build
+debug:
+	swift build -c debug -Xswiftc -target -Xswiftc x86_64-apple-macosx11.2
+.PHONY: debug
 
 release:
 	swift build -c release -Xswiftc -target -Xswiftc x86_64-apple-macosx11.2

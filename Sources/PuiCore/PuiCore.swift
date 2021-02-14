@@ -20,7 +20,6 @@ public struct PuiCore {
     let templates: [Template] = architecture.templates
     switch command {
       case .setup:
-        DLog("setup")
         for template in templates {
           try template.save(file: file)
         }
