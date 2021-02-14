@@ -1,5 +1,5 @@
 run:
-	swift run pui --generate --mvc
+	swift run pui --generate MVC Login
 
 .PHONY: run
 

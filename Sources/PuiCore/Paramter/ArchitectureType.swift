@@ -11,9 +11,9 @@ public enum ArchitectureType: EnumerableFlag {
   var templates: [Template] {
     switch self {
     case .mvc:
-      return [MVCViewControllerTemplate(), MVCViewTemplate()]
+      return [MVCViewControllerTemplate(), MVCStoryboardTemplate(), MVCViewTemplate(), MVCXibTemplate()]
     default:
-      return [MVCViewControllerTemplate(), MVCViewTemplate()]
+      return [MVCViewControllerTemplate(), MVCStoryboardTemplate(), MVCViewTemplate(), MVCXibTemplate()]
     }
   }
 }
