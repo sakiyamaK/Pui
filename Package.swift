@@ -10,10 +10,7 @@ let package = Package(
          .executable(name: "pui", targets: ["Pui"]),
         .library(
             name: "PuiCore",
-            targets: ["PuiCore"]),
-        .executable(
-            name: "Pui",
-            targets: ["Pui"]),
+            targets: ["PuiCore"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
