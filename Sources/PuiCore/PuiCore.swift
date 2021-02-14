@@ -1,4 +1,5 @@
 import Foundation
+import SwiftShell
 
 public struct PuiCore {
   let file = FileOperator(fileManager: FileManager.default)
@@ -17,7 +18,7 @@ public struct PuiCore {
     let templates: [Template] = architecture.templates
     switch command {
       case .setup:
-        print("setup")
+        DLog("setup")
         for template in templates {
           try file.createDirectory(for: template.dirPath)
 
@@ -29,22 +30,28 @@ public struct PuiCore {
         }
 
       case .generate:
-        print("generate \(componentName)")
-        guard !componentName.isEmpty else {
-          print("component name is empty")
+
+        let yaml = try YamlResource.loadYamlIfPossible()
+        guard
+          let templateDirPath = yaml[.string("DefaultTemplateDirectoryPath")].string,
+          let targetName = yaml[.string("Target")].string,
+          let generateRootPath = yaml[.string("MVC")][.string("GenerateRootPath")].string else {
           return
         }
-        for template in templates {
-          let component = try Component(componentName: componentName, template: template, file: file)
 
-          try file.createDirectory(for: component.dirPath)
+        DLog(templateDirPath)
+        DLog(targetName)
+        DLog(generateRootPath)
 
-          file.createFile(for: component.dirPath + component.codeFileName)
-          try file.write(to: component.dirPath + component.codeFileName, content: component.code)
+        let component = try Component(componentName: componentName,
+                                      templatePath: templateDirPath + "MVC/",
+                                        generateRootPath: generateRootPath, targetName: targetName)
+        try component.save(file: file)
 
-          file.createFile(for: component.dirPath + component.supportFileName)
-          try file.write(to: component.dirPath + component.supportFileName, content: component.supportFile)
-        }
+//        for template in templates {
+//          let component = try Component(componentName: componentName, template: template, file: file)
+//
+//        }
     }
   }
 }

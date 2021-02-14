@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftShell
 
 extension String {
   fileprivate struct DateComponent {
@@ -13,17 +14,11 @@ extension String {
     let month: Int
     let day: Int
 
-    var date: String {
-      return "\(year)/\(month)/\(day)"
-    }
+    var date: String { "\(year)/\(month)/\(day)" }
   }
 
   func replaceEnvironmentText(prefix: String, targetName: String)  -> String {
-    let bash: CommandExecuting = Bash()
-    guard let userName = try? bash.run(commandName: "echo", arguments: ["$USER"]) else {
-      return ""
-    }
-
+    let userName = run("echo $USER").stdout
     let date: DateComponent = { _ -> DateComponent in
       let component = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: Date())
       guard

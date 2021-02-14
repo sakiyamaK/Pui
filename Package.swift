@@ -19,7 +19,8 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "Yaml", url: "https://github.com/behrang/YamlSwift.git", from: "3.4.4"),
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.2")
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.2"),
+        .package(url: "https://github.com/kareman/SwiftShell.git", from: "5.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,13 +29,13 @@ let package = Package(
             name: "Pui",
             dependencies: [
               .product(name: "ArgumentParser", package: "swift-argument-parser"), 
-              "Yaml",
               "PuiCore"]
         ),
         .target(name: "PuiCore",
                 dependencies: [
                   .product(name: "ArgumentParser", package: "swift-argument-parser"),
                   "Yaml",
+                  "SwiftShell",
                 ]),
         .testTarget(
             name: "PuiTests",

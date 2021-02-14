@@ -6,25 +6,34 @@
 //
 
 import Foundation
+import SwiftShell
 
 struct Component {
   var dirPath: String { "./\(componentName)/" }
-  var supportFileName: String { template.supportFileName.replacingOccurrences(of: Const.prefix, with: componentName) }
-
-  var supportFile: String = ""
-
-  var codeFileName: String { template.codeFileName.replacingOccurrences(of: Const.prefix, with: componentName) }
-
-  var code: String = ""
 
   private var componentName: String
-  private var template: Template
+  private var templatePath: String
+  private var generateRootPath: String
+  private var targetName: String?
 
-  init(componentName: String, template: Template, file: FileOperator) throws {
+  init(componentName: String, templatePath: String, generateRootPath: String, targetName: String?) throws {
     self.componentName = componentName
-    self.template = template
-    supportFile = try file.read(for: template.dirPath + template.supportFileName).replaceEnvironmentText(prefix: componentName, targetName: Const.targetName)
-    code = try file.read(for: template.dirPath + template.codeFileName).replaceEnvironmentText(prefix: componentName, targetName: Const.targetName)
+    self.templatePath = templatePath
+    self.generateRootPath = generateRootPath
+    self.targetName = targetName
+  }
 
+  func save(file: FileOperator) throws {
+    try file.createDirectory(for: generateRootPath)
+    for templateDir in SwiftShell.run(bash: "ls " + templatePath).stdout.split(separator: "\n") {
+      let componentPath = generateRootPath + templateDir
+      try file.createDirectory(for: componentPath)
+      for templateFileName in SwiftShell.run(bash: "ls " + templatePath + "\(templateDir)").stdout.split(separator: "\n") {
+        let componentFilePath = String(componentPath + "/" + templateFileName).replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
+        let fileUrl = URL(fileURLWithPath: templatePath + "/" + templateDir + "/" + templateFileName)
+        let code = try String(contentsOf: fileUrl).replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
+        try file.write(to: componentFilePath, content: code)
+      }
+    }
   }
 }

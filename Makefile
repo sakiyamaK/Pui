@@ -1,10 +1,11 @@
 run:
-	swift run pui --setup --mvc
+	swift run pui --generate --mvc
 
 .PHONY: run
 
 setup:
 	swift package generate-xcodeproj --skip-extra-files
+	open ./Pui.xcodeproj
 
 .PHONY: setup
 
