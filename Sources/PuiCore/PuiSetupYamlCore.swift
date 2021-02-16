@@ -22,6 +22,7 @@ public struct PuiSetupYamlCore {
     ].joined(separator: "\n")
     
     try file.write(to: "./" + Const.yamlFileName, content: content)
+    print("generate Pui.yml")
   }
 }
 

@@ -27,6 +27,7 @@ public struct PuiGenerateCore {
                               generateRootPath: generateRootPath,
                               targetName: targetName)
     try component.save(file: file)
+    print("generate \(componentName) component")
   }
 }
 

@@ -21,7 +21,6 @@ public struct YamlResource {
   private static let ymlFileName = "Pui.yml"
   fileprivate static func findYamlFile() -> URL? {
     let path = run(bash: "ls | grep \(ymlFileName)").stdout
-    DLog(path)
     return URL(fileURLWithPath: path)
   }
   
@@ -34,11 +33,8 @@ public struct YamlResource {
       throw PuiError.notFoundYml("Can't find \(ymlFileName), please prepare this file.")
     }
     do {
-      DLog("\(yamlFile)")
       let yamlContent = try readYamlContent(for: yamlFile)
-      DLog("\(yamlContent)")
       let yaml = try Yaml.load(yamlContent)
-      DLog("\(yaml)")
       return yaml
     } catch {
       throw PuiError.notParseYml("Can't load yaml file.")
