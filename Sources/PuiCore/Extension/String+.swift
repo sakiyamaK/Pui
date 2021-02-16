@@ -42,4 +42,7 @@ extension String {
     return replacedContent
   }
 
+  var firstUpper: String {
+    self.prefix(1).uppercased() + self.dropFirst()
+  }
 }

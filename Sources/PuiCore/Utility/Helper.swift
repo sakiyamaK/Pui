@@ -10,8 +10,18 @@ import Foundation
 enum Const {
   static let prefix: String = "__PREFIX__"
   static let targetName: String = "__TARGET__"
-  private static let templateDirName = "./templates/PuiTemplate/"
-  static let mvcPath: String = templateDirName + "MVC/"
+  static let templateDirName = "templates/PuiTemplate"
+  static let yamlFileName: String = "Pui.yml" 
+}
+
+enum YamlProperty: String {
+  case defaultTemplateDirectoryPath
+  case target
+  case generateRootPath
+
+  var keyName: String {
+    self.rawValue.firstUpper
+  }
 }
 
 func DLog(_ obj: Any? = nil, file: String = #file, function: String = #function, line: Int = #line) {

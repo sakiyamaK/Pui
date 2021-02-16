@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct MVCViewControllerTemplate: Template {
-  var dirPath: String { Const.mvcPath + "/ViewController/" }
+struct IOSMVCViewControllerTemplate: Template {
+  var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvc.name + "/ViewController/" }
   var fileName: String { Const.prefix + "ViewController.swift" }
   var code: String {
 """

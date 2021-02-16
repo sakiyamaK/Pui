@@ -23,11 +23,15 @@ struct Component {
   }
 
   func save(file: FileOperator) throws {
+    DLog("\(templatePath)")
+    DLog("\(generateRootPath)")
     try file.createDirectory(for: generateRootPath)
     let componentPath = generateRootPath + componentName + "/"
+    DLog("\(componentPath)")
     try file.createDirectory(for: componentPath)
     for templateDir in SwiftShell.run(bash: "ls " + templatePath).stdout.split(separator: "\n") {
       let componentSubPath = componentPath + templateDir + "/"
+      DLog("\(componentSubPath)")
       try file.createDirectory(for: componentSubPath)
       let templateSubPath = templatePath + templateDir + "/"
       for templateFileName in SwiftShell.run(bash: "ls " + templateSubPath).stdout.split(separator: "\n") {
@@ -35,6 +39,7 @@ struct Component {
           .replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
         let fileUrl = URL(fileURLWithPath: templateSubPath + "/" + templateFileName)
         let code = try String(contentsOf: fileUrl).replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
+        DLog("\(componentFilePath)")
         try file.write(to: componentFilePath, content: code)
       }
     }

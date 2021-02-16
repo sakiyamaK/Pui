@@ -2,7 +2,7 @@
 import Foundation
 import ArgumentParser
 
-public enum ArchitectureType: EnumerableFlag {
+public enum ArchitectureType: String, EnumerableFlag {
   case mvc
   case mvp
   case mvvm
@@ -11,9 +11,13 @@ public enum ArchitectureType: EnumerableFlag {
   var templates: [Template] {
     switch self {
     case .mvc:
-      return [MVCViewControllerTemplate(), MVCStoryboardTemplate(), MVCViewTemplate(), MVCXibTemplate()]
+      return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
     default:
-      return [MVCViewControllerTemplate(), MVCStoryboardTemplate(), MVCViewTemplate(), MVCXibTemplate()]
+      return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
     }
+  }
+
+  var name: String {
+    self.rawValue.uppercased()
   }
 }

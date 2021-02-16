@@ -1,5 +1,5 @@
 //
-//  MVCXibTemplate.swift
+//  IOSMVCXibTemplate.swift
 //  PuiCore
 //
 //  Created by sakiyamaK on 2021/02/15.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct MVCXibTemplate: Template {
-  var dirPath: String { Const.mvcPath + "/View/" }
+struct IOSMVCXibTemplate: Template {
+  var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvc.name + "/View/" }
   var fileName: String { Const.prefix + "View.xib" }
   var code: String {
     """
