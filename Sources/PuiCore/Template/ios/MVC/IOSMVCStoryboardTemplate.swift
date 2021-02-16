@@ -9,7 +9,7 @@ import Foundation
 
 struct IOSMVCStoryboardTemplate: Template {
 
-  var dirPath: String { Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvc.name + "/ViewController/" }
+  var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvc.name + "/ViewController/" }
   var fileName: String { Const.prefix + "ViewController.storyboard" }
   var code: String {
     """
