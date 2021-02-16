@@ -12,6 +12,12 @@ public enum ArchitectureType: String, EnumerableFlag {
     switch self {
     case .mvc:
       return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
+    case .mvp:
+      return [
+        IOSMVPViewControllerTemplate(), IOSMVPStoryboardTemplate(), 
+        IOSMVPViewTemplate(), IOSMVPXibTemplate(), 
+        IOSMVPPresenterTemplate(), IOSMVPModelTemplate()
+      ]
     default:
       return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
     }

@@ -1,8 +1,9 @@
 run:
-	swift run pui --generate MVC Login
+	swift run pui generate MVP Dummy
 .PHONY: run
 
 setup:
+	make clean
 	swift package generate-xcodeproj --skip-extra-files
 	open ./Pui.xcodeproj
 .PHONY: setup
