@@ -12,7 +12,7 @@
 
 #### Setup Template File
 ```
-pui setup [--ios] --mvc/--mvp --template
+pui setup [--ios] --mvc/--mvp/--mvvm --template
 ```
 
 `./templates/PuiTemplate/ios/MVC`にテンプレートファイルが生成されます
@@ -22,10 +22,10 @@ pui setup [--ios] --mvc/--mvp --template
 
 #### Setup Yaml File
 ```
-pui setup [--ios] --mvc/--mvp --yaml
+pui setup [--ios] --mvc/--mvp/--mvvm --yaml
 ```
 
-`pui setup [--ios] --mvc/--mvp --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
+`pui setup [--ios] --mvc/--mvp/--mvvm --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
 
 <img src="https://i.gyazo.com/80c1565d75e90546fa1ce394eafe50c1.png">
 

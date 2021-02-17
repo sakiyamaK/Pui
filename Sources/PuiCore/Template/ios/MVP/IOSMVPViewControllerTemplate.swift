@@ -1,8 +1,7 @@
 import Foundation
 
-struct IOSMVPViewControllerTemplate: Template {
+struct IOSMVPViewControllerTemplate: ViewControllerTemplate {
   var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvp.name + "/ViewController/" }
-  var fileName: String { Const.prefix + "ViewController.swift" }
   var code: String {
 """
 import UIKit

@@ -18,6 +18,12 @@ public enum ArchitectureType: String, EnumerableFlag {
         IOSMVPViewTemplate(), IOSMVPXibTemplate(), 
         IOSMVPPresenterTemplate(), IOSMVPModelTemplate()
       ]
+    case .mvvm:
+      return [
+        IOSMVVMStoryboardTemplate(), IOSMVVMViewControllerTemplate(),
+        IOSMVVMViewTemplate(), IOSMVVMXibTemplate(),
+        IOSMVVMViewModelTemplate()
+      ]
     default:
       return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
     }

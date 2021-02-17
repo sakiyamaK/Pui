@@ -1,5 +1,5 @@
 run:
-	swift run pui generate MVP Dummy
+	swift run pui generate MVVM DummyMVVM
 .PHONY: run
 
 setup:
