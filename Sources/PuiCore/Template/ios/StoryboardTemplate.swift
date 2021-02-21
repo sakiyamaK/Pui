@@ -4,7 +4,7 @@ protocol StoryboardTemplate: Template {
 }
 
 extension StoryboardTemplate {
-    var fileName: String { Const.prefix + "ViewController.storyboard" }
+    var fileName: String { Const.prefix + ".storyboard" }
     var code: String {
     """
 <?xml version="1.0" encoding="UTF-8"?>
