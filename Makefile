@@ -2,7 +2,11 @@ run:
 	swift run pui generate MVVM DummyMVVM
 .PHONY: run
 
-setup:
+template:
+	swift run pui setup --mvvm --template
+.PHONY: setup
+
+yaml:
 	swift run pui setup --mvvm --template
 .PHONY: setup
 
