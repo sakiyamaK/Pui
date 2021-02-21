@@ -24,8 +24,14 @@ public enum ArchitectureType: String, EnumerableFlag {
         IOSMVVMViewTemplate(), IOSMVVMXibTemplate(),
         IOSMVVMViewModelTemplate()
       ]
-    default:
-      return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
+    case .viper:
+      return [
+        IOSVIPERViewControllerTemplate(), IOSVIPERStoryboardTemplate(),
+        IOSVIPERInteractorTemplate(),
+        IOSVIPERPresenterTemplate(),
+        IOSVIPEREntityTemplate(),
+        IOSVIPERRouterTemplate()
+      ]
     }
   }
 

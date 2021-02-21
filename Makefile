@@ -1,13 +1,13 @@
 run:
-	swift run pui generate MVVM DummyMVVM
+	swift run pui generate VIPER DummyVIPER
 .PHONY: run
 
 template:
-	swift run pui setup --mvvm --template
+	swift run pui setup --viper --template
 .PHONY: setup
 
 yaml:
-	swift run pui setup --mvvm --template
+	swift run pui setup --viper --yaml
 .PHONY: setup
 
 xcodeproj:

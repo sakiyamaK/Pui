@@ -7,13 +7,19 @@
 [Kuri](https://github.com/bannzai/Kuri)を参考にしました
 (Based on Kuri)
 
+## Support Default Architecture
+デフォルトで対応しているアーキテクチャです。
+
+### iOS
+MVC, MVP, MVVM, VIPER
+
 ## How To Use
 
 ### Setup
 
 #### Setup Template File
 ```
-pui setup [--ios] --mvc/--mvp/--mvvm --template
+pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template
 ```
 
 `./templates/PuiTemplate/ios/MVC`にテンプレートファイルが生成されます
@@ -24,11 +30,11 @@ pui setup [--ios] --mvc/--mvp/--mvvm --template
 
 #### Setup Yaml File
 ```
-pui setup [--ios] --mvc/--mvp/--mvvm --yaml
+pui setup [--ios] --mvc/--mvp/--mvvm/--viper --yaml
 ```
 
-`pui setup [--ios] --mvc/--mvp/--mvvm --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
-(`pui setup [--ios] --mvc/--mvp/--mvvm --template` will generate a configuration file, `. /Pui.yml` will be generated)
+`pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
+(`pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template` will generate a configuration file, `. /Pui.yml` will be generated)
 
 <img src="https://i.gyazo.com/8201119b88d8cec37d6a182431cba76b.png">
 
