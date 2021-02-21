@@ -23,7 +23,6 @@ public struct PuiSetupYamlCore {
 
     if let content = try? file.read(for: "./" + Const.yamlFileName) {
       let newContent = content + "\n\n" + addContent
-      print(newContent)
       try file.write(to: "./" + Const.yamlFileName, content: newContent)
       print("update \(Const.yamlFileName)")
     } else {
