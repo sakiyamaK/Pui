@@ -32,13 +32,13 @@ extension String {
     }(())
 
     let replacedContent = self
-      .replacingOccurrences(of: "__PREFIX__", with: prefix)
-      .replacingOccurrences(of: "__TARGET__", with: targetName)
-      .replacingOccurrences(of: "__USERNAME__", with: userName)
-      .replacingOccurrences(of: "__DATE__", with: date.date)
-      .replacingOccurrences(of: "__YEAR__", with: "\(date.year)")
-      .replacingOccurrences(of: "__MONTH__", with: "\(date.month)")
-      .replacingOccurrences(of: "__DAY__", with: "\(date.day)")
+      .replacingOccurrences(of: Const.prefix, with: prefix)
+      .replacingOccurrences(of: Const.targetName, with: targetName)
+      .replacingOccurrences(of: Const.userName, with: userName)
+      .replacingOccurrences(of: Const.dateStr, with: date.date)
+      .replacingOccurrences(of: Const.yearStr, with: "\(date.year)")
+      .replacingOccurrences(of: Const.monthStr, with: "\(date.month)")
+      .replacingOccurrences(of: Const.dayStr, with: "\(date.day)")
     return replacedContent
   }
 

@@ -4,6 +4,13 @@ struct IOSMVVMViewControllerTemplate: ViewControllerTemplate {
   var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.mvvm.name + "/ViewController/" }
   var code: String {
 """
+//
+//  \(Const.prefix)View.swift
+//  \(Const.targetName)
+//
+//  Created by \(Const.userName) on \(Const.yearStr)/\(Const.monthStr)/\(Const.dayStr).
+//
+
 import UIKit
 import RxSwift
 import RxCocoa

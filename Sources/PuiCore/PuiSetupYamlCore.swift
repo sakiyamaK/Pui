@@ -13,16 +13,24 @@ public struct PuiSetupYamlCore {
   }
 
   public func run() throws {
-    file.createFile(for: "./" + Const.yamlFileName)
-    let content = [
-      "\(YamlProperty.defaultTemplateDirectoryPath.keyName): ./\(Const.templateDirName)/\(front.name)/",
-      "\(YamlProperty.target.keyName): \(Const.targetName)\n",
+
+    let addContent = [
       "\(architecture.name):",
+      "  \(YamlProperty.target.keyName): \(Const.targetName)",
+      "  \(YamlProperty.templateDirectoryPath.keyName): ./\(Const.templateDirName)/\(front.name)/\(architecture.name)",
       "  \(YamlProperty.generateRootPath.keyName): ./"
     ].joined(separator: "\n")
-    
-    try file.write(to: "./" + Const.yamlFileName, content: content)
-    print("generate Pui.yml")
+
+    if let content = try? file.read(for: "./" + Const.yamlFileName) {
+      let newContent = content + "\n\n" + addContent
+      print(newContent)
+      try file.write(to: "./" + Const.yamlFileName, content: newContent)
+      print("update \(Const.yamlFileName)")
+    } else {
+      file.createFile(for: "./" + Const.yamlFileName)
+      try file.write(to: "./" + Const.yamlFileName, content: addContent)
+      print("create \(Const.yamlFileName)")
+    }
   }
 }
 

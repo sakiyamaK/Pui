@@ -3,10 +3,14 @@ run:
 .PHONY: run
 
 setup:
+	swift run pui setup --mvvm --template
+.PHONY: setup
+
+xcodeproj:
 	make clean
 	swift package generate-xcodeproj --skip-extra-files
 	open ./Pui.xcodeproj
-.PHONY: setup
+.PHONY: xcodeproj
 
 debug:
 	swift build -c debug -Xswiftc -target -Xswiftc x86_64-apple-macosx11.2

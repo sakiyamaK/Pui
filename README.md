@@ -27,7 +27,7 @@ pui setup [--ios] --mvc/--mvp/--mvvm --yaml
 
 `pui setup [--ios] --mvc/--mvp/--mvvm --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
 
-<img src="https://i.gyazo.com/80c1565d75e90546fa1ce394eafe50c1.png">
+<img src="https://i.gyazo.com/8201119b88d8cec37d6a182431cba76b.png">
 
 ### Generate
 

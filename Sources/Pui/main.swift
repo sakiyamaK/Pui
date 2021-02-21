@@ -1,6 +1,5 @@
 import Foundation
 import PuiCore
-// import PuiGenerateCore
 import Dispatch
 import ArgumentParser
 
@@ -18,28 +17,11 @@ struct Pui: ParsableCommand {
     discussion: """
         
         """,
-    version: "1.0.0",
+    version: "0.0.4",
     shouldDisplay: true,
     subcommands: [Setup.self, Generate.self],
     helpNames: [.long, .short]
   )
-
-  // @Flag(help: "Set Command type")
-  // var command: CommandType
-
-  // @Flag(help: "Set Architecture type if command equal to setup")
-  // var architecture: ArchitectureType = .mvc
-
-  // @Argument(help: "Set TemplateName if command equal to generate")
-  // var templateName: String = ""
-
-  // @Argument(help: "Set ComponentName if command equal to generate")
-  // var componentName: String = ""
-
-  // func run() throws {
-  //   let core = PuiCore(command: command, architecture: architecture, templateName: templateName, componentName: componentName)
-  //   try core.run()
-  // }
 }
 
 extension Pui {

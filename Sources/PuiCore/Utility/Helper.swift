@@ -10,12 +10,17 @@ import Foundation
 enum Const {
   static let prefix: String = "__PREFIX__"
   static let targetName: String = "__TARGET__"
+  static let userName: String = "__USERNAME__"
+  static let dateStr: String = "__DATE__"
+  static let yearStr: String = "__YEAR__"
+  static let monthStr: String =  "__MONTH__"
+  static let dayStr: String = "__DAY__"
   static let templateDirName = "templates/PuiTemplate"
-  static let yamlFileName: String = "Pui.yml" 
+  static let yamlFileName: String = "Pui.yml"
 }
 
 enum YamlProperty: String {
-  case defaultTemplateDirectoryPath
+  case templateDirectoryPath
   case target
   case generateRootPath
 
