@@ -25,26 +25,23 @@ struct Component {
   func save(file: FileOperator) throws {
     try file.createDirectory(for: generateRootPath)
 
-    let componentPath = generateRootPath + "/" + componentName
+    let componentPath = (generateRootPath + "/" + componentName).replacingOccurrences(of: "//", with: "/")
     try file.createDirectory(for: componentPath)
 
     for templateDir in SwiftShell.run(bash: "ls " + templatePath).stdout.split(separator: "\n") {
       DLog(templateDir)
 
-      let componentSubPath = componentPath + "/" + templateDir
-      DLog(componentSubPath)
+      let componentSubPath = (componentPath + "/" + templateDir).replacingOccurrences(of: "//", with: "/")
 
       try file.createDirectory(for: componentSubPath)
 
-      let templateSubPath = templatePath + "/" + templateDir
+      let templateSubPath = (templatePath + "/" + templateDir).replacingOccurrences(of: "//", with: "/")
       for templateFileName in SwiftShell.run(bash: "ls " + templateSubPath).stdout.split(separator: "\n") {
-        DLog(templateFileName)
 
-        let componentFilePath = String(componentSubPath + "/" + templateFileName)
+        let componentFilePath = (componentSubPath + "/" + templateFileName).replacingOccurrences(of: "//", with: "/")
           .replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
 
-        DLog(componentFilePath)
-        let fileUrl = URL(fileURLWithPath: templateSubPath + "/" + templateFileName)
+        let fileUrl = URL(fileURLWithPath: (templateSubPath + "/" + templateFileName).replacingOccurrences(of: "//", with: "/"))
 
         let code = try String(contentsOf: fileUrl).replaceEnvironmentText(prefix: componentName, targetName: targetName ?? "")
 
