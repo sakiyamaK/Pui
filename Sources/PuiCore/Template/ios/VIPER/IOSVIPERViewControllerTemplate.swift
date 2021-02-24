@@ -30,7 +30,7 @@ final class \(Const.prefix)ViewController: UIViewController {
   }
 }
 
-extension LoginViewController: LoginView {
+extension \(Const.prefix)ViewController: \(Const.prefix)View {
 }
 """
   }
