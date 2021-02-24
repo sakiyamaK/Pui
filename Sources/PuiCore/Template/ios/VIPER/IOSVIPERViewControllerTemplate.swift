@@ -1,7 +1,7 @@
 import Foundation
 
 struct IOSVIPERViewControllerTemplate: ViewControllerTemplate {
-  var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.viper.name + "/ViewController/" }
+  var dirPath: String { "./" + Const.templateDirName + "/" + FrontType.ios.name + "/" + ArchitectureType.viper.name + "/View/" }
   var code: String {
 """
 //
