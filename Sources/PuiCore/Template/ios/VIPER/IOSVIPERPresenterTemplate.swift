@@ -34,7 +34,7 @@ final class \(Const.prefix)Presenter {
   }
 }
 
-extension LoginPresenter: \(Const.prefix)Presentation {
+extension \(Const.prefix)Presenter: \(Const.prefix)Presentation {
   func viewDidLoad() {
   }
 }
