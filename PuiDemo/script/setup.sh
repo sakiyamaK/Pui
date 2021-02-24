@@ -1,4 +1,5 @@
 #!/bin/sh
+mint uninstall Pui
 mint bootstrap
 
 # set template and yaml

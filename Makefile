@@ -24,6 +24,28 @@ release:
 	swift build -c release -Xswiftc -target -Xswiftc x86_64-apple-macosx11.2
 .PHONY: release
 
+test:
+# set template and yaml
+swift run pui setup --mvc --template
+swift run pui setup --mvc --yaml
+
+swift run pui setup --mvp --template
+swift run pui setup --mvp --yaml
+
+swift run pui setup --mvvm --template
+swift run pui setup --mvvm --yaml
+
+swift run pui setup --viper --template
+swift run pui setup --viper --yaml
+
+# generate boilerplate
+swift run pui generate MVC DummyMVC
+swift run pui generate MVP DummyMVP
+swift run pui generate MVVM DummyMVVM
+swift run pui generate VIPER DummyVIPER
+
+.PHONY: release
+
 clean:
 	./script/clean.sh
 .PHONY: clean
