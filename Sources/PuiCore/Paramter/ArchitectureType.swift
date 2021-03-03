@@ -8,20 +8,20 @@ public enum ArchitectureType: String, EnumerableFlag {
   case mvvm
   case viper
 
+  case view
+
   var templates: [Template] {
     switch self {
     case .mvc:
-      return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate(), IOSMVCViewTemplate(), IOSMVCXibTemplate()]
+      return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate()]
     case .mvp:
       return [
         IOSMVPViewControllerTemplate(), IOSMVPStoryboardTemplate(), 
-        IOSMVPViewTemplate(), IOSMVPXibTemplate(), 
         IOSMVPPresenterTemplate(), IOSMVPModelTemplate()
       ]
     case .mvvm:
       return [
         IOSMVVMStoryboardTemplate(), IOSMVVMViewControllerTemplate(),
-        IOSMVVMViewTemplate(), IOSMVVMXibTemplate(),
         IOSMVVMViewModelTemplate()
       ]
     case .viper:
@@ -32,6 +32,8 @@ public enum ArchitectureType: String, EnumerableFlag {
         IOSVIPEREntityTemplate(),
         IOSVIPERRouterTemplate()
       ]
+    case .view:
+      return [IOSViewTemplate(), IOSXibTemplate()]
     }
   }
 

@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum Const {
+public enum Const {
   static let prefix: String = "__PREFIX__"
-  static let targetName: String = "__TARGET__"
+  public static let targetName: String = "__TARGET__"
   static let userName: String = "__USERNAME__"
   static let dateStr: String = "__DATE__"
   static let yearStr: String = "__YEAR__"

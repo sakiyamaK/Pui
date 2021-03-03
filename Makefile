@@ -3,11 +3,11 @@ run:
 .PHONY: run
 
 template:
-	swift run pui setup --viper --template
+	swift run pui template --viper
 .PHONY: setup
 
 yaml:
-	swift run pui setup --viper --yaml
+	swift run pui yaml --viper
 .PHONY: setup
 
 xcodeproj:
@@ -25,26 +25,29 @@ release:
 .PHONY: release
 
 test:
-# set template and yaml
-swift run pui setup --mvc --template
-swift run pui setup --mvc --yaml
+	# set template and yaml
+	swift run pui template --mvc
+	swift run pui yaml --mvc
 
-swift run pui setup --mvp --template
-swift run pui setup --mvp --yaml
+	swift run pui template --mvp
+	swift run pui yaml --mvp
 
-swift run pui setup --mvvm --template
-swift run pui setup --mvvm --yaml
+	swift run pui template --mvvm
+	swift run pui yaml --mvvm
 
-swift run pui setup --viper --template
-swift run pui setup --viper --yaml
+	swift run pui template --viper
+	swift run pui yaml --viper
 
-# generate boilerplate
-swift run pui generate MVC DummyMVC
-swift run pui generate MVP DummyMVP
-swift run pui generate MVVM DummyMVVM
-swift run pui generate VIPER DummyVIPER
+	swift run pui template --view
+	swift run pui yaml --view
 
-.PHONY: release
+	# generate boilerplate
+	swift run pui component MVC DummyMVC
+	swift run pui component MVP DummyMVP
+	swift run pui component MVVM DummyMVVM
+	swift run pui component VIPER DummyVIPER
+	swift run pui component VIEW DummyVIEW
+.PHONY: test
 
 clean:
 	./script/clean.sh

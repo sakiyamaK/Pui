@@ -15,43 +15,57 @@ struct Pui: ParsableCommand {
     commandName: "pui",
     abstract: "",
     discussion: """
-        
+
         """,
-    version: "0.0.4",
+    version: "0.0.6",
     shouldDisplay: true,
-    subcommands: [Setup.self, Generate.self],
+    subcommands: [Template.self, Yaml.self, Component.self],
     helpNames: [.long, .short]
   )
 }
 
 extension Pui {
-  struct Setup: ParsableCommand {
+  struct Template: ParsableCommand {
+
     static var configuration = CommandConfiguration(abstract: "Generate template files")
 
     @Flag(help: "FrontEnd type")
-    var front: FrontType = .ios 
+    var front: FrontType = .ios
 
     @Flag(help: "Architecture type")
     var architecture: ArchitectureType
 
-    @Flag(help: "File type")
-    var fileType: FileType
-
     mutating func run() throws {
-      switch fileType {
-        case .template:
-          let core = PuiSetupTemplateCore(front: front, architecture: architecture)
-          try core.run()
-        case .yaml:
-          let core = PuiSetupYamlCore(front: front, architecture: architecture)
-          try core.run()
-      }
+      let core = PuiTemplateCore(front: front, architecture: architecture)
+      try core.run()
     }
   }
 }
 
 extension Pui {
-  struct Generate: ParsableCommand {
+  struct Yaml: ParsableCommand {
+
+    static var configuration = CommandConfiguration(abstract: "Generate yaml files")
+
+    @Flag(help: "FrontEnd type")
+    var front: FrontType = .ios
+
+    @Flag(help: "Architecture type")
+    var architecture: ArchitectureType
+
+    @Argument(help: "Target Name")
+    var targetName: String = Const.targetName
+
+    mutating func run() throws {
+      let core = PuiYamlCore(front: front, architecture: architecture, targetName: targetName)
+      try core.run()
+    }
+  }
+}
+
+extension Pui {
+  struct Component: ParsableCommand {
+
     static var configuration = CommandConfiguration(abstract: "Generate component files from Pui.yml")
 
     @Argument(help: "Template Name")
@@ -61,7 +75,7 @@ extension Pui {
     var componentName: String
 
     mutating func run() throws {
-      let core = PuiGenerateCore(templateName: templateName, componentName: componentName)
+      let core = PuiComponentCore(templateName: templateName, componentName: componentName)
       try core.run()
     }
   }

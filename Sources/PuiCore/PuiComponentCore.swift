@@ -1,7 +1,7 @@
 import Foundation
 import SwiftShell
 
-public struct PuiGenerateCore {
+public struct PuiComponentCore {
   let file = FileOperator(fileManager: FileManager.default)
 
   var templateName: String
