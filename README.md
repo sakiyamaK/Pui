@@ -15,41 +15,41 @@
 (This is the architecture that is supported by default.)
 
 ### iOS
-MVC, MVP, MVVM, VIPER
+MVC, MVP, MVVM, VIPER, VIEW
+
+※VIEWはXibとswiftのソースコードが生成されます。
 
 ## How To Use
 
-### Setup
-
-#### Setup Template File
+### Setup Template File
 ```
-pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template
+pui template [--ios] --mvc/--mvp/--mvvm/--viper/--view
 ```
 
-`./templates/PuiTemplate/ios/MVC`にテンプレートファイルが生成されます
+`./templates/PuiTemplate/ios/`にテンプレートファイルが生成されます
 
-(`. /templates/PuiTemplate/ios/MVC` will generate the template file)
+(`. /templates/PuiTemplate/ios/` will generate the template file)
 
-<img src="https://i.gyazo.com/dd1ae300b27db456bf02e96f0bcf9f1b.png">
+<img src="https://i.gyazo.com/d3673cc0d121e4dc3194e30137e92886.png">
 
 
-#### Setup Yaml File
+### Setup Yaml File
 ```
-pui setup [--ios] --mvc/--mvp/--mvvm/--viper --yaml
+pui yaml [--ios] --mvc/--mvp/--mvvm/--viper/--view
 ```
 
-`pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
+`pui template [--ios] --mvc/--mvp/--mvvm/--viper/--view` で生成したテンプレートを利用するための設定ファイルである`./Pui.yml`が生成されます
 
-(`pui setup [--ios] --mvc/--mvp/--mvvm/--viper --template` will generate a configuration file, `. /Pui.yml` will be generated)
+(`pui template [--ios] --mvc/--mvp/--mvvm/--viper/--view` will generate a configuration file, `. /Pui.yml` will be generated)
 
-<img src="https://i.gyazo.com/8201119b88d8cec37d6a182431cba76b.png">
+<img src="https://i.gyazo.com/a30ca6c7270c4fb7fd3f1338ed675f9f.png">
 
-### Generate
+### Generate Component
 
 #### Use Default Pui.yml
 
 ```
-pui generate <TemplateDirName> <ComponentName>
+pui component <TemplateDirName> <ComponentName>
 ```
 
 `Pui.yml`内の`<TemplateDirName>`キーの設定を読み込み`<ComponentName>`としてファイルが生成されます

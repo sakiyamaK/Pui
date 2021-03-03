@@ -1,7 +1,7 @@
 import Foundation
 import SwiftShell
 
-public struct PuiSetupTemplateCore {
+public struct PuiTemplateCore {
   let file = FileOperator(fileManager: FileManager.default)
 
   var front: FrontType

@@ -18,10 +18,9 @@ extension StoryboardTemplate {
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
         <scene sceneID="ctg-4H-50b">
             <objects>
-                <viewController id="wOa-SI-twv" customClass="\(Const.prefix)ViewController" customModule="\(Const.targetName)"  sceneMemberID="viewController">
+                <viewController id="wOa-SI-twv" customClass="\(Const.prefix)ViewController" customModule="\(Const.targetName)" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UiU-xH-lu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
