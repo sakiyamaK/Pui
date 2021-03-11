@@ -4,6 +4,8 @@ import ArgumentParser
 
 public enum ArchitectureType: String, EnumerableFlag {
   case mvc
+  case mvc_table
+  case mvc_collection
   case mvp
   case mvvm
   case viper
@@ -14,6 +16,10 @@ public enum ArchitectureType: String, EnumerableFlag {
     switch self {
     case .mvc:
       return [IOSMVCViewControllerTemplate(), IOSMVCStoryboardTemplate()]
+    case .mvc_table:
+      return [IOSMVCTableViewControllerTemplate(), IOSMVCTableStoryboardTemplate()]
+    case .mvc_collection:
+      return [IOSMVCCollectionViewControllerTemplate(), IOSMVCCollectionStoryboardTemplate()]
     case .mvp:
       return [
         IOSMVPViewControllerTemplate(), IOSMVPStoryboardTemplate(), 
@@ -33,7 +39,7 @@ public enum ArchitectureType: String, EnumerableFlag {
         IOSVIPERRouterTemplate()
       ]
     case .view:
-      return [IOSViewTemplate(), IOSXibTemplate()]
+      return [IOSViewTemplate(), IOSViewXibTemplate()]
     }
   }
 

@@ -25,9 +25,21 @@ release:
 .PHONY: release
 
 test:
+	
+	#clean
+	rm -rf templates
+	rm -rf Dummy*
+	rm -rf Pui.yml
+	
 	# set template and yaml
 	swift run pui template --mvc
 	swift run pui yaml --mvc
+
+	swift run pui template --mvc_table
+	swift run pui yaml --mvc_table
+
+	swift run pui template --mvc_collection
+	swift run pui yaml --mvc_collection
 
 	swift run pui template --mvp
 	swift run pui yaml --mvp
@@ -43,6 +55,8 @@ test:
 
 	# generate boilerplate
 	swift run pui component MVC DummyMVC
+	swift run pui component MVC_TABLE DummyMVCTable
+	swift run pui component MVC_COLLECTION DummyMVCCollection
 	swift run pui component MVP DummyMVP
 	swift run pui component MVVM DummyMVVM
 	swift run pui component VIPER DummyVIPER
@@ -50,5 +64,10 @@ test:
 .PHONY: test
 
 clean:
-	./script/clean.sh
+	rm -rf .build
+	rm -rf *.xcodeproj
+	rm -rf Package.resolved
+	rm -rf templates
+	rm -rf Dummy*
+	rm -rf Pui.yml
 .PHONY: clean

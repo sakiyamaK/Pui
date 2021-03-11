@@ -25,7 +25,7 @@ final class \(Const.prefix)Router {
   }
 
   static func assembleModules() -> UIViewController {
-    let view = \(Const.prefix)ViewController.makeFromStoryboard()
+    let view = UIStoryboard.load\(Const.prefix)()
     let interactor = \(Const.prefix)Interactor()
     let router = \(Const.prefix)Router(viewController: view)
     let presenter = \(Const.prefix)Presenter(
@@ -33,9 +33,7 @@ final class \(Const.prefix)Router {
       interactor: interactor,
       router: router
     )
-
-    view.presenter = presenter
-
+    view.inject(presenter: presenter)
     return view
   }
 }

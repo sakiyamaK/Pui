@@ -6,7 +6,7 @@ protocol StoryboardTemplate: Template {
 extension StoryboardTemplate {
     var fileName: String { Const.prefix + ".storyboard" }
     var code: String {
-    """
+"""
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wOa-SI-twv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>

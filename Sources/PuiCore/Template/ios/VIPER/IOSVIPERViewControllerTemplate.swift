@@ -17,11 +17,10 @@ protocol \(Const.prefix)View: AnyObject {
 }
 
 final class \(Const.prefix)ViewController: UIViewController {
-  var presenter: \(Const.prefix)Presentation!
 
-  static func makeFromStoryboard() -> \(Const.prefix)ViewController {
-    let vc = UIStoryboard.load\(Const.prefix)()
-    return vc
+  private var presenter: \(Const.prefix)Presentation!
+  func inject(presenter: \(Const.prefix)Presentation) {
+    self.presenter = presenter
   }
 
   override func viewDidLoad() {

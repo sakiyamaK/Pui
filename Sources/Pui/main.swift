@@ -17,7 +17,7 @@ struct Pui: ParsableCommand {
     discussion: """
 
         """,
-    version: "0.0.6",
+    version: "0.0.7",
     shouldDisplay: true,
     subcommands: [Template.self, Yaml.self, Component.self],
     helpNames: [.long, .short]
