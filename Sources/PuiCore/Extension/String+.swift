@@ -18,7 +18,8 @@ extension String {
   }
 
   func replaceEnvironmentText(prefix: String, targetName: String)  -> String {
-    let userName = run("echo $USER").stdout
+    //TODO: SwiftShellを実行したら処理が止まった
+    let userName = "" //run("echo $USER").stdout
     let date: DateComponent = { _ -> DateComponent in
       let component = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: Date())
       guard
