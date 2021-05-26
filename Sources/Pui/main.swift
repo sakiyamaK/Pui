@@ -36,8 +36,12 @@ extension Pui {
     var architecture: ArchitectureType
 
     mutating func run() throws {
-      let core = PuiTemplateCore(front: front, architecture: architecture)
-      try core.run()
+      do {
+        let core = PuiTemplateCore(front: front, architecture: architecture)
+        try core.run()
+      } catch let error {
+        fatalError(error.localizedDescription)
+      }
     }
   }
 }
@@ -57,8 +61,12 @@ extension Pui {
     var targetName: String = Const.targetName
 
     mutating func run() throws {
-      let core = PuiYamlCore(front: front, architecture: architecture, targetName: targetName)
-      try core.run()
+      do {
+        let core = PuiYamlCore(front: front, architecture: architecture, targetName: targetName)
+        try core.run()
+      } catch let error {
+        fatalError(error.localizedDescription)
+      }
     }
   }
 }
@@ -74,9 +82,13 @@ extension Pui {
     @Argument(help: "Component Name")
     var componentName: String
 
-    mutating func run() throws {
-      let core = PuiComponentCore(templateName: templateName, componentName: componentName)
-      try core.run()
+    mutating func run() {
+      do {
+        let core = PuiComponentCore(templateName: templateName, componentName: componentName)
+        try core.run()
+      } catch let error {
+        fatalError(error.localizedDescription)
+      }
     }
   }
 }
